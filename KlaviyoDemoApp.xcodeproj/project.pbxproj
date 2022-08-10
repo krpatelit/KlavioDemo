@@ -99,12 +99,11 @@
 		E5B77C2A28A3796400D13683 /* KlaviyoDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				E5B77C2B28A3796400D13683 /* AppDelegate.swift */,
-				E5B77C2D28A3796400D13683 /* SceneDelegate.swift */,
+				E5B77C5F28A37A7B00D13683 /* Module */,
+				E5B77C5E28A37A6500D13683 /* Utils */,
+				E5B77C5C28A37A3700D13683 /* Application */,
+				E5B77C5B28A37A0200D13683 /* Resources */,
 				E5B77C2F28A3796400D13683 /* ViewController.swift */,
-				E5B77C3128A3796400D13683 /* Main.storyboard */,
-				E5B77C3428A3796500D13683 /* Assets.xcassets */,
-				E5B77C3628A3796500D13683 /* LaunchScreen.storyboard */,
 				E5B77C3928A3796500D13683 /* Info.plist */,
 			);
 			path = KlaviyoDemoApp;
@@ -125,6 +124,63 @@
 				E5B77C4E28A3796600D13683 /* KlaviyoDemoAppUITestsLaunchTests.swift */,
 			);
 			path = KlaviyoDemoAppUITests;
+			sourceTree = "<group>";
+		};
+		E5B77C5B28A37A0200D13683 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5B77C3128A3796400D13683 /* Main.storyboard */,
+				E5B77C3428A3796500D13683 /* Assets.xcassets */,
+				E5B77C3628A3796500D13683 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5B77C5C28A37A3700D13683 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E5B77C6028A37ACE00D13683 /* Coordinator */,
+				E5B77C5D28A37A4400D13683 /* AppDelegate */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E5B77C5D28A37A4400D13683 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E5B77C2B28A3796400D13683 /* AppDelegate.swift */,
+				E5B77C2D28A3796400D13683 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E5B77C5E28A37A6500D13683 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5B77C6128A37AEA00D13683 /* NetworkManager */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E5B77C5F28A37A7B00D13683 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		E5B77C6028A37ACE00D13683 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E5B77C6128A37AEA00D13683 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
