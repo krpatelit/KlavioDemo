@@ -20,6 +20,7 @@
 		E500F13828A5B6DB00AD45C2 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13728A5B6DB00AD45C2 /* ProfileModel.swift */; };
 		E500F13C28A5B7A200AD45C2 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13A28A5B7A200AD45C2 /* EventTableViewCell.swift */; };
 		E500F13D28A5B7A200AD45C2 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E500F13B28A5B7A200AD45C2 /* EventTableViewCell.xib */; };
+		E500F13F28A5C6A500AD45C2 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13E28A5C6A500AD45C2 /* UserData.swift */; };
 		E5B77C2C28A3796400D13683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2B28A3796400D13683 /* AppDelegate.swift */; };
 		E5B77C2E28A3796400D13683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2D28A3796400D13683 /* SceneDelegate.swift */; };
 		E5B77C3028A3796400D13683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2F28A3796400D13683 /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 		E500F13728A5B6DB00AD45C2 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		E500F13A28A5B7A200AD45C2 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		E500F13B28A5B7A200AD45C2 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		E500F13E28A5C6A500AD45C2 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E5B77C2828A3796400D13683 /* KlaviyoDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlaviyoDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B77C2B28A3796400D13683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B77C2D28A3796400D13683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		E5B77C2A28A3796400D13683 /* KlaviyoDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				E500F12F28A4BE0400AD45C2 /* Configuration.swift */,
 				E5B77C5F28A37A7B00D13683 /* Module */,
 				E5B77C5E28A37A6500D13683 /* Utils */,
 				E5B77C5C28A37A3700D13683 /* Application */,
@@ -236,9 +239,9 @@
 			isa = PBXGroup;
 			children = (
 				E5B77C6128A37AEA00D13683 /* NetworkManager */,
-				E500F12F28A4BE0400AD45C2 /* Configuration.swift */,
 				E500F13128A591A400AD45C2 /* HelperUtility.swift */,
 				E500F13328A59A2A00AD45C2 /* UtilityExtensions.swift */,
+				E500F13E28A5C6A500AD45C2 /* UserData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				E500F13C28A5B7A200AD45C2 /* EventTableViewCell.swift in Sources */,
 				E500F13628A5B68B00AD45C2 /* PostEventModel.swift in Sources */,
 				E5B77C6528A37C6D00D13683 /* ApplicationCoordinator.swift in Sources */,
+				E500F13F28A5C6A500AD45C2 /* UserData.swift in Sources */,
 				E5B77C6328A37C3800D13683 /* Coordinator.swift in Sources */,
 				E500F12E28A482C800AD45C2 /* UserProfileDataManager.swift in Sources */,
 				E500F12228A4817900AD45C2 /* EventViewController.swift in Sources */,
