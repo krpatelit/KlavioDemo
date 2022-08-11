@@ -58,7 +58,8 @@ class UserProfileDataManager: UserProfileDataManaging {
     func fetchEventList(pagination: Pagination,
                         callBack: @escaping (Result<ProfileEventList, Failure>) -> Void) {
 
-        self.getUserId { userId in
+        Task {
+            let userId = await self.getUserId()
             let listInfo = EventListReqInfo(personId: userId,
                                             since: pagination.cursor ?? "",
                                             count: pagination.count,
@@ -70,11 +71,10 @@ class UserProfileDataManager: UserProfileDataManaging {
         }
     }
 
-    private func getUserId(block: @escaping (String) -> Void) {
+    private func getUserId() async -> String {
 
         if !Global.user.userId.isEmpty {
-            block(Global.user.userId)
-            return
+            return Global.user.userId
         }
 
         let reqInfo = ProfileIdReqInfo(email: Global.user.emailId,
@@ -83,15 +83,19 @@ class UserProfileDataManager: UserProfileDataManaging {
                                         apiKey: Global.apiKey)
 
         let request = KlaviyoRequest.profileId(reqInfo: reqInfo)
-        let resBlock: (Result<ProfileIdResponse, Failure>) -> Void = { result in
-            switch result {
-            case .success(let profileIdRes):
-                Global.user.userId = profileIdRes.id
-                block(profileIdRes.id)
-            case .failure(_):
-                block("")
+
+        return await withCheckedContinuation { continuation in
+
+            let resBlock: (Result<ProfileIdResponse, Failure>) -> Void = { result in
+                switch result {
+                case .success(let profileIdRes):
+                    Global.user.userId = profileIdRes.id
+                case .failure(_):
+                    break
+                }
+                continuation.resume(with: Result.success(Global.user.userId))
             }
+            self.networkManager.request(request: request, callBack: resBlock)
         }
-        self.networkManager.request(request: request, callBack: resBlock)
     }
 }

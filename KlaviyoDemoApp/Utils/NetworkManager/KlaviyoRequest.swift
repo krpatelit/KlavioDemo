@@ -9,7 +9,7 @@ import Foundation
 
 enum KlaviyoRequest: RequestProtocol, CustomStringConvertible {
 
-    case eventPost(event: EventData)
+    case eventPost(event: PostEventReqInfo)
     case eventList(reqInfo: EventListReqInfo)
     case profileId(reqInfo: ProfileIdReqInfo)
 
@@ -18,19 +18,21 @@ enum KlaviyoRequest: RequestProtocol, CustomStringConvertible {
     }
 
     var url: String {
+        var urlString = ""
         switch self {
         case .eventPost(_):
-            return self.domain + "/track"
+            urlString = self.domain + "/track"
         case .eventList(let reqInfo):
             //"https://a.klaviyo.com/api/v1/person/01GA5DD0W1BW1SAFX3CRD5K4PK/metrics/timeline?count=5&sort=desc&api_key=pk_96b0fe8936212b7aa32e67897b086660e8"
-            var urlString = self.domain
+            urlString = self.domain
             urlString += "/v1/person/" + reqInfo.personId + "/metrics/timeline?"
             urlString += "count=\(reqInfo.count)"
             urlString += "&sort=\(reqInfo.sort)"
+            urlString += "&since=\(reqInfo.since)"
             urlString += "&api_key=\(reqInfo.apiKey)"
-            return urlString
+
         case .profileId(let reqInfo):
-            var urlString = self.domain
+            urlString = self.domain
             urlString += "/v2/people/search?"
             if let email = reqInfo.email {
                 urlString += "email=\(email)"
@@ -40,8 +42,8 @@ enum KlaviyoRequest: RequestProtocol, CustomStringConvertible {
                 urlString += "external_id=\(external_id)"
             }
             urlString += "&api_key=\(reqInfo.apiKey)"
-            return urlString
         }
+        return urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
 
     var description: String {

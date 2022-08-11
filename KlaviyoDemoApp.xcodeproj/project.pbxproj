@@ -13,7 +13,9 @@
 		E500F12A28A4827700AD45C2 /* EventDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F12928A4827700AD45C2 /* EventDataManager.swift */; };
 		E500F12C28A4828A00AD45C2 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F12B28A4828A00AD45C2 /* UserProfileViewModel.swift */; };
 		E500F12E28A482C800AD45C2 /* UserProfileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F12D28A482C800AD45C2 /* UserProfileDataManager.swift */; };
-		E500F13028A4BE0400AD45C2 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F12F28A4BE0400AD45C2 /* GlobalVariables.swift */; };
+		E500F13028A4BE0400AD45C2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F12F28A4BE0400AD45C2 /* Configuration.swift */; };
+		E500F13228A591A400AD45C2 /* HelperUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13128A591A400AD45C2 /* HelperUtility.swift */; };
+		E500F13428A59A2A00AD45C2 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13328A59A2A00AD45C2 /* UtilityExtensions.swift */; };
 		E5B77C2C28A3796400D13683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2B28A3796400D13683 /* AppDelegate.swift */; };
 		E5B77C2E28A3796400D13683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2D28A3796400D13683 /* SceneDelegate.swift */; };
 		E5B77C3028A3796400D13683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2F28A3796400D13683 /* ViewController.swift */; };
@@ -58,7 +60,9 @@
 		E500F12928A4827700AD45C2 /* EventDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataManager.swift; sourceTree = "<group>"; };
 		E500F12B28A4828A00AD45C2 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		E500F12D28A482C800AD45C2 /* UserProfileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDataManager.swift; sourceTree = "<group>"; };
-		E500F12F28A4BE0400AD45C2 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		E500F12F28A4BE0400AD45C2 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		E500F13128A591A400AD45C2 /* HelperUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUtility.swift; sourceTree = "<group>"; };
+		E500F13328A59A2A00AD45C2 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		E5B77C2828A3796400D13683 /* KlaviyoDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlaviyoDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B77C2B28A3796400D13683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B77C2D28A3796400D13683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,7 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				E5B77C6128A37AEA00D13683 /* NetworkManager */,
-				E500F12F28A4BE0400AD45C2 /* GlobalVariables.swift */,
+				E500F12F28A4BE0400AD45C2 /* Configuration.swift */,
+				E500F13128A591A400AD45C2 /* HelperUtility.swift */,
+				E500F13328A59A2A00AD45C2 /* UtilityExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -396,12 +402,14 @@
 				E5B77C3028A3796400D13683 /* ViewController.swift in Sources */,
 				E5B77C6B28A37CD200D13683 /* RequestProtocol.swift in Sources */,
 				E500F12A28A4827700AD45C2 /* EventDataManager.swift in Sources */,
-				E500F13028A4BE0400AD45C2 /* GlobalVariables.swift in Sources */,
+				E500F13228A591A400AD45C2 /* HelperUtility.swift in Sources */,
+				E500F13028A4BE0400AD45C2 /* Configuration.swift in Sources */,
 				E5B77C6928A37CB100D13683 /* NetworkManager.swift in Sources */,
 				E500F12428A4818A00AD45C2 /* UserProfileViewController.swift in Sources */,
 				E5B77C6728A37C9D00D13683 /* Networking.swift in Sources */,
 				E5B77C2C28A3796400D13683 /* AppDelegate.swift in Sources */,
 				E500F12628A481F900AD45C2 /* EventViewModule.swift in Sources */,
+				E500F13428A59A2A00AD45C2 /* UtilityExtensions.swift in Sources */,
 				E5B77C7028A380B300D13683 /* TabBarCoordinator.swift in Sources */,
 				E500F12C28A4828A00AD45C2 /* UserProfileViewModel.swift in Sources */,
 				E5B77C2E28A3796400D13683 /* SceneDelegate.swift in Sources */,

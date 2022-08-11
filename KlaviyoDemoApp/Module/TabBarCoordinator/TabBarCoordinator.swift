@@ -41,11 +41,9 @@ class TabBarCoordinator: Coordinator {
         userCoordinator.start()
 
         let eventVC = eventCoordinator.rootViewContoller!
-        eventVC.tabBarItem.title = "Event"
         let userVC = userCoordinator.rootViewContoller!
-        userVC.tabBarItem.title = "User"
 
-        let vcList = [eventCoordinator.rootViewContoller!, userCoordinator.rootViewContoller!]
+        let vcList = [eventVC, userVC]
         self.tabBarController.setViewControllers(vcList, animated: false)
 
         self.navigationController.setViewControllers([self.tabBarController], animated: false)

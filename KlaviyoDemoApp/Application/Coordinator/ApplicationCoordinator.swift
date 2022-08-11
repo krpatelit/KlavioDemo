@@ -25,13 +25,6 @@ class ApplicationCoordinator: Coordinator {
     }()
 
     func start() {
-
-        UINavigationBar.appearance().tintColor = UIColor.purple
-        //UITabBar.appearance().backgroundColor = UIColor.lightGray
-        UITabBar.appearance().tintColor = UIColor.black
-        //UINavigationBar.appearance().backgroundColor = UIColor.lightGray
-
-
         let coordinator = TabBarCoordinator(navigationController,
                                             parent: self,
                                             networkManager: self.networkManager)

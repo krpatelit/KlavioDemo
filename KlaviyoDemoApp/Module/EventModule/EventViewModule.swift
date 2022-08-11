@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EventViewModeling {
-    func buttonEvent(event: String)
+    func postEvent(event: EventInfo)
 }
 
 class EventViewModule: EventViewModeling {
@@ -19,10 +19,8 @@ class EventViewModule: EventViewModeling {
         self.dataManager = dataManager
     }
 
-    func buttonEvent(event: String) {
-        self.dataManager.buttonEvent(event: event) { result in
-            //handle Error or Success here
-        }
+    func postEvent(event: EventInfo) {
+        self.dataManager.postEvent(event: event)
     }
 
 }

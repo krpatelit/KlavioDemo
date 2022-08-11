@@ -43,7 +43,7 @@ class NetworkManager: Networking {
                 callBack(.failure(.badRespons))
                 return
             }
-            print("\(String(describing: response))")
+            //print("\(String(describing: response?))")
             let responseString = String(decoding: data, as: UTF8.self)
             print(responseString)
             if let model = try? self.decode(T.self, data: data) {

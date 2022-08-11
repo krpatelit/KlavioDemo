@@ -7,58 +7,89 @@
 
 import Foundation
 import UIKit
-/*
-{
-  "token": "PUBLIC_KEY",
-  "event": "Ordered Product",
-  "customer_properties": {
-    "$email": "abraham.lincoln@klaviyo.com"
-  },
-  "properties": {
-    "item_name": "Boots",
-    "$value": 100
-  }
-}
-*/
 
-struct EventData: Codable {
+struct DynamicCodingKeys: CodingKey {
+
+    // Use for string-keyed dictionary
+    var stringValue: String
+    init?(stringValue: String) {
+        self.stringValue = stringValue
+    }
+
+    // Use for integer-keyed dictionary
+    var intValue: Int?
+    init?(intValue: Int) {
+        // We are not using this, thus just return nil
+        return nil
+    }
+}
+
+struct PostEventReqInfo: Codable {
     let token: String
     let event: String
     let customer_properties: CustomerProperty
     let properties: Properties
 
-    init(token: String, event: String, email: String) {
+    init(token: String,
+         event: String,
+         customerProperty: CustomerProperty,
+         properties: Properties) {
         self.token = token
         self.event = event
-        self.customer_properties = CustomerProperty(email: email)
-        self.properties = Properties(itemName: "Test", value: 111)
+        self.customer_properties = customerProperty
+        self.properties = properties
     }
 }
 
 struct CustomerProperty: Codable {
+    //SpecialField
     let email: String
+    var first_name: String?
+    var last_name: String?
+    var phone_number: String?
+    var city: String?
+    var region: String?
+    var country: String?
+    var zip: String?
+    var image: String?
+    var consent: [String]?
+    let extraParameter: [String: String]?
 
-    enum CodingKeys: String, CodingKey {
-        case email = "$email"
+    init(email: String, extraParameter: [String: String]? = nil) {
+        self.email = email
+        self.extraParameter = extraParameter
     }
 
-    init(email: String) {
-        self.email = email
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: DynamicCodingKeys.self)
+        try container.encode(email, forKey: DynamicCodingKeys(stringValue: "$email")!)
+        if let extraPara = extraParameter {
+            for (extraKey, extraValue) in extraPara {
+                try container.encode(extraValue, forKey: DynamicCodingKeys(stringValue: extraKey)!)
+            }
+        }
     }
 }
 
 struct Properties: Codable {
     let item_name: String
     let value: Int
+    let extraParameter: [String: String]?
 
-    enum CodingKeys: String, CodingKey {
-        case item_name = "item_name"
-        case value = "$value"
-    }
-
-    init(itemName: String, value: Int) {
+    init(itemName: String, value: Int, extraParameter: [String: String]? = nil) {
         self.item_name = itemName
         self.value = value
+        self.extraParameter = extraParameter
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: DynamicCodingKeys.self)
+        try container.encode(value, forKey: DynamicCodingKeys(stringValue: "$value")!)
+        if let extraPara = extraParameter {
+            for (extraKey, extraValue) in extraPara {
+                try container.encode(extraValue, forKey: DynamicCodingKeys(stringValue: extraKey)!)
+            }
+        }
     }
 }
 
@@ -67,9 +98,7 @@ struct EventResponse: Decodable {
 }
 
 protocol EventDataManaging {
-    func buttonEvent(event: String)
-    func buttonEvent(event: String,
-                     callBack: @escaping (Result<Data, Failure>) -> Void)
+    func postEvent(event: EventInfo)
 }
 
 class EventDataManager: EventDataManaging {
@@ -80,18 +109,24 @@ class EventDataManager: EventDataManaging {
         self.networkManager = networkManager
     }
 
-    func buttonEvent(event: String) {
-        self.buttonEvent(event: event) { _ in }
+    func postEvent(event: EventInfo) {
+        self.postEvent(event: event) { _ in }
     }
 
-    func buttonEvent(event: String,
+    func postEvent(event: EventInfo,
                      callBack: @escaping (Result<Data, Failure>) -> Void) {
 
-        let eventData = EventData(token: Global.apiKey,
-                                  event: event,
-                                  email: Global.user.emailId)
+        let customerProperty = Helper.getCustomerProperty(extraParameter: ["extraKey": "ectraValue"])
+        let properties = Properties(itemName: event.item,
+                                          value: event.value,
+                                          extraParameter: ["extraKey1": "extraValue1"])
 
-        let request = KlaviyoRequest.eventPost(event: eventData)
+        let eventInfo = PostEventReqInfo(token: Global.apiKey,
+                                         event: event.event,
+                                         customerProperty: customerProperty,
+                                         properties: properties)
+
+        let request = KlaviyoRequest.eventPost(event: eventInfo)
         self.networkManager.request(request: request, callBack: callBack)
     }
 }
