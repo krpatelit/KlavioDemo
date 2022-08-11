@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Event-->
+        <scene sceneID="Lxb-CT-Wgb">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="EventViewController" title="Event" id="qTH-zE-FEj" customClass="EventViewController" customModule="KlaviyoDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3bh-Na-mNJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeo-es-BTE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKl-C5-JMA">
+                                        <rect key="frame" x="132" y="36" width="150" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="hZi-c6-KkH"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zut-EZ-3qM"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button1"/>
+                                        <connections>
+                                            <action selector="event1PressedWithButton:" destination="qTH-zE-FEj" eventType="touchUpInside" id="iXR-kL-t8m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmI-hB-Dex">
+                                        <rect key="frame" x="132" y="128" width="150" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="6FA-1s-vym"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="jBL-36-0KE"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button2"/>
+                                        <connections>
+                                            <action selector="event1PressedWithButton:" destination="qTH-zE-FEj" eventType="touchUpInside" id="x2X-jV-3bG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstItem="ZKl-C5-JMA" firstAttribute="top" secondItem="oeo-es-BTE" secondAttribute="top" constant="36" id="JCR-xt-lyD"/>
+                                    <constraint firstItem="jmI-hB-Dex" firstAttribute="centerX" secondItem="oeo-es-BTE" secondAttribute="centerX" id="JwV-Me-ZLv"/>
+                                    <constraint firstItem="jmI-hB-Dex" firstAttribute="top" secondItem="ZKl-C5-JMA" secondAttribute="bottom" constant="32" id="Qkz-Mh-7tJ"/>
+                                    <constraint firstItem="ZKl-C5-JMA" firstAttribute="centerX" secondItem="oeo-es-BTE" secondAttribute="centerX" id="maL-KM-lgy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="84d-D3-H1K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oeo-es-BTE" firstAttribute="leading" secondItem="84d-D3-H1K" secondAttribute="leading" id="3D3-aM-GM7"/>
+                            <constraint firstItem="84d-D3-H1K" firstAttribute="bottom" secondItem="oeo-es-BTE" secondAttribute="bottom" id="SKJ-Up-PZS"/>
+                            <constraint firstItem="oeo-es-BTE" firstAttribute="top" secondItem="84d-D3-H1K" secondAttribute="top" id="qQB-m1-7rV"/>
+                            <constraint firstItem="84d-D3-H1K" firstAttribute="trailing" secondItem="oeo-es-BTE" secondAttribute="trailing" id="qhk-Bs-3f2"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ozL-U6-FFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="805.79710144927537" y="121.875"/>
+        </scene>
+        <!--User Profile-->
+        <scene sceneID="KUJ-zu-epZ">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" title="User Profile" id="abq-I0-zfI" customClass="UserProfileViewController" customModule="KlaviyoDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mHH-Bh-fxc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CKK-l1-zHL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="abq-I0-zfI" id="oEH-EF-Z7d"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1js-J8-56p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CKK-l1-zHL" firstAttribute="leading" secondItem="1js-J8-56p" secondAttribute="leading" id="GtZ-Qe-mI1"/>
+                            <constraint firstItem="CKK-l1-zHL" firstAttribute="top" secondItem="1js-J8-56p" secondAttribute="top" id="JdN-V9-tf9"/>
+                            <constraint firstAttribute="bottom" secondItem="CKK-l1-zHL" secondAttribute="bottom" id="hHd-cE-dqg"/>
+                            <constraint firstItem="1js-J8-56p" firstAttribute="trailing" secondItem="CKK-l1-zHL" secondAttribute="trailing" id="me2-8l-g99"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tblView" destination="CKK-l1-zHL" id="S5e-Yz-FgB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8JF-tn-qAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500.0000000000002" y="128.57142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
