@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Event-->
+        <!--Post Event-->
         <scene sceneID="Lxb-CT-Wgb">
             <objects>
-                <viewController storyboardIdentifier="EventViewController" title="Event" id="qTH-zE-FEj" customClass="EventViewController" customModule="KlaviyoDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" title="Post Event" id="qTH-zE-FEj" customClass="EventViewController" customModule="KlaviyoDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3bh-Na-mNJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="805.79710144927537" y="121.875"/>
         </scene>
-        <!--User Profile-->
+        <!--Profile Events-->
         <scene sceneID="KUJ-zu-epZ">
             <objects>
-                <viewController storyboardIdentifier="UserProfileViewController" title="User Profile" id="abq-I0-zfI" customClass="UserProfileViewController" customModule="KlaviyoDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" title="Profile Events" id="abq-I0-zfI" customClass="UserProfileViewController" customModule="KlaviyoDemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mHH-Bh-fxc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
