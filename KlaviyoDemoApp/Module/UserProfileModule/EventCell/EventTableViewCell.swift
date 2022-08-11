@@ -25,11 +25,11 @@ class EventTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setData(event: ProfileEvent) {
-        self.lblEvent.text = event.event_name
-        self.lblDate.text = event.datetime
-        let itemNane = event.event_properties?.item_name ?? ""
-        let price = event.event_properties?.value ?? ""
+    func setData(event: EventCellViewModel) {
+        self.lblEvent.text = event.event
+        self.lblDate.text = event.date
+        let itemNane = event.item ?? ""
+        let price = event.price ?? ""
         if !itemNane.isEmpty {
             self.lblItem.text = "Item:"
             self.lblItemValue.text = itemNane + " - " + price

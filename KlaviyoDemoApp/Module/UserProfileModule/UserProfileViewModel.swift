@@ -7,15 +7,6 @@
 
 import Foundation
 
-protocol UserProfileViewModeling {
-    var eventList: [ProfileEvent] { get }
-    var updateUI: (() -> Void)? { get set}
-    var showMessage: ((_ title: String, _ message: String?) -> Void)? { get set }
-    func loadNewData()
-    func loadMoreData()
-    func resetData()
-}
-
 class Pagination {
     enum SortEvent: String {
         case asc
@@ -30,6 +21,25 @@ class Pagination {
     func isNewDataPager() -> Bool {
         sort == SortEvent.asc.rawValue
     }
+}
+
+struct EventCellViewModel {
+    let event: String
+    let item: String?
+    let price: String?
+    let date: String?
+}
+
+protocol UserProfileViewModeling {
+    var eventList: [ProfileEvent] { get }
+    var updateUI: (() -> Void)? { get set}
+    var showMessage: ((_ title: String, _ message: String?) -> Void)? { get set }
+    func loadNewData()
+    func loadMoreData()
+    func resetData()
+    func item(at index: Int) -> EventCellViewModel
+    func numberOfItem() -> Int
+
 }
 
 class UserProfileViewModel: UserProfileViewModeling {
@@ -51,6 +61,19 @@ class UserProfileViewModel: UserProfileViewModeling {
         newEventPager.cursor = String(Date().timeIntervalSince1970)
         oldEventPager.cursor = nil
         oldEventPager.hasMoreData = true
+    }
+
+    func numberOfItem() -> Int {
+        self.eventList.count
+    }
+
+    func item(at index: Int) -> EventCellViewModel {
+        let event = self.eventList[index]
+        let viewModel = EventCellViewModel(event: event.event_name,
+                           item: event.event_properties?.item_name,
+                           price: event.event_properties?.value,
+                           date: event.datetime)
+        return viewModel
     }
 
     func resetData() {

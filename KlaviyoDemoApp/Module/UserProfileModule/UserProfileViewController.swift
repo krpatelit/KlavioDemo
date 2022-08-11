@@ -59,7 +59,7 @@ class UserProfileViewController: UIViewController {
 extension UserProfileViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModele?.eventList.count ?? 0
+        return self.viewModele?.numberOfItem() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,10 +67,10 @@ extension UserProfileViewController: UITableViewDataSource {
         let reuseIdentifier = EventTableViewCell.reuseIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier,
                                                  for: indexPath) as? EventTableViewCell
-        let event = self.viewModele!.eventList[indexPath.row]
+        let event = self.viewModele!.item(at: indexPath.row)
         cell?.setData(event: event)
         
-        let count = self.viewModele?.eventList.count ?? 0
+        let count = self.viewModele?.numberOfItem() ?? 0
         if count - 3 == indexPath.row {
             self.viewModele?.loadMoreData()
         }
