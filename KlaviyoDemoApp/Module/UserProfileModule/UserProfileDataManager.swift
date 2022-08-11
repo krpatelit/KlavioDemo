@@ -7,41 +7,6 @@
 
 import Foundation
 
-struct EventListReqInfo: Encodable {
-    let personId: String
-    let since: String
-    let count: String
-    let sort: String
-    let apiKey: String
-}
-
-struct ProfileIdReqInfo: Encodable {
-    let email: String?
-    let phone_number: String?
-    let external_id: String?
-    let apiKey: String
-}
-
-struct ProfileIdResponse: Decodable {
-    let id: String
-}
-
-struct ProfileEventList: Decodable {
-    let count: Int
-    let data: [ProfileEvent]
-    let next: String?
-}
-
-//As require, we may add extra field
-struct ProfileEvent: Decodable {
-    let object: String
-    let id: String
-    let statistic_id: String
-    let event_name: String
-    //let event_properties: String
-    let datetime: String
-}
-
 protocol UserProfileDataManaging {
     func fetchEventList(pagination: Pagination,
                         callBack: @escaping (Result<ProfileEventList, Failure>) -> Void)

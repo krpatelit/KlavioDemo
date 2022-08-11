@@ -16,6 +16,8 @@ class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tblView.register(EventTableViewCell.nib,
+                              forCellReuseIdentifier: EventTableViewCell.reuseIdentifier)
 
         self.viewModele?.updateUI = { [weak self] in
             DispatchQueue.main.async {
@@ -61,19 +63,19 @@ extension UserProfileViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "cell")
 
-        let event = self.viewModele?.eventList[indexPath.row]
-        cell.textLabel?.text = event?.event_name
-        cell.detailTextLabel?.text = event?.datetime
-
-
+        let reuseIdentifier = EventTableViewCell.reuseIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier,
+                                                 for: indexPath) as? EventTableViewCell
+        let event = self.viewModele!.eventList[indexPath.row]
+        cell?.setData(event: event)
+        
         let count = self.viewModele?.eventList.count ?? 0
         if count - 3 == indexPath.row {
             self.viewModele?.loadMoreData()
         }
 
-        return cell
+        return cell ?? UITableViewCell()
     }
 }
 

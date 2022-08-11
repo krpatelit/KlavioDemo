@@ -16,6 +16,10 @@
 		E500F13028A4BE0400AD45C2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F12F28A4BE0400AD45C2 /* Configuration.swift */; };
 		E500F13228A591A400AD45C2 /* HelperUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13128A591A400AD45C2 /* HelperUtility.swift */; };
 		E500F13428A59A2A00AD45C2 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13328A59A2A00AD45C2 /* UtilityExtensions.swift */; };
+		E500F13628A5B68B00AD45C2 /* PostEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13528A5B68B00AD45C2 /* PostEventModel.swift */; };
+		E500F13828A5B6DB00AD45C2 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13728A5B6DB00AD45C2 /* ProfileModel.swift */; };
+		E500F13C28A5B7A200AD45C2 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500F13A28A5B7A200AD45C2 /* EventTableViewCell.swift */; };
+		E500F13D28A5B7A200AD45C2 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E500F13B28A5B7A200AD45C2 /* EventTableViewCell.xib */; };
 		E5B77C2C28A3796400D13683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2B28A3796400D13683 /* AppDelegate.swift */; };
 		E5B77C2E28A3796400D13683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2D28A3796400D13683 /* SceneDelegate.swift */; };
 		E5B77C3028A3796400D13683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B77C2F28A3796400D13683 /* ViewController.swift */; };
@@ -63,6 +67,10 @@
 		E500F12F28A4BE0400AD45C2 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		E500F13128A591A400AD45C2 /* HelperUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUtility.swift; sourceTree = "<group>"; };
 		E500F13328A59A2A00AD45C2 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		E500F13528A5B68B00AD45C2 /* PostEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEventModel.swift; sourceTree = "<group>"; };
+		E500F13728A5B6DB00AD45C2 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		E500F13A28A5B7A200AD45C2 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E500F13B28A5B7A200AD45C2 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		E5B77C2828A3796400D13683 /* KlaviyoDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlaviyoDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B77C2B28A3796400D13683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B77C2D28A3796400D13683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 				E500F12128A4817900AD45C2 /* EventViewController.swift */,
 				E500F12528A481F900AD45C2 /* EventViewModule.swift */,
 				E500F12928A4827700AD45C2 /* EventDataManager.swift */,
+				E500F13528A5B68B00AD45C2 /* PostEventModel.swift */,
 			);
 			path = EventModule;
 			sourceTree = "<group>";
@@ -126,12 +135,23 @@
 		E500F12028A4811E00AD45C2 /* UserProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				E500F13928A5B78700AD45C2 /* EventCell */,
 				E5B77C7328A3871500D13683 /* UserProfileCoordinator.swift */,
 				E500F12328A4818A00AD45C2 /* UserProfileViewController.swift */,
 				E500F12B28A4828A00AD45C2 /* UserProfileViewModel.swift */,
 				E500F12D28A482C800AD45C2 /* UserProfileDataManager.swift */,
+				E500F13728A5B6DB00AD45C2 /* ProfileModel.swift */,
 			);
 			path = UserProfileModule;
+			sourceTree = "<group>";
+		};
+		E500F13928A5B78700AD45C2 /* EventCell */ = {
+			isa = PBXGroup;
+			children = (
+				E500F13A28A5B7A200AD45C2 /* EventTableViewCell.swift */,
+				E500F13B28A5B7A200AD45C2 /* EventTableViewCell.xib */,
+			);
+			path = EventCell;
 			sourceTree = "<group>";
 		};
 		E5B77C1F28A3796300D13683 = {
@@ -365,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E500F13D28A5B7A200AD45C2 /* EventTableViewCell.xib in Resources */,
 				E5B77C3828A3796500D13683 /* LaunchScreen.storyboard in Resources */,
 				E5B77C3528A3796500D13683 /* Assets.xcassets in Resources */,
 				E5B77C3328A3796400D13683 /* Main.storyboard in Resources */,
@@ -392,6 +413,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E500F13C28A5B7A200AD45C2 /* EventTableViewCell.swift in Sources */,
+				E500F13628A5B68B00AD45C2 /* PostEventModel.swift in Sources */,
 				E5B77C6528A37C6D00D13683 /* ApplicationCoordinator.swift in Sources */,
 				E5B77C6328A37C3800D13683 /* Coordinator.swift in Sources */,
 				E500F12E28A482C800AD45C2 /* UserProfileDataManager.swift in Sources */,
@@ -410,6 +433,7 @@
 				E5B77C2C28A3796400D13683 /* AppDelegate.swift in Sources */,
 				E500F12628A481F900AD45C2 /* EventViewModule.swift in Sources */,
 				E500F13428A59A2A00AD45C2 /* UtilityExtensions.swift in Sources */,
+				E500F13828A5B6DB00AD45C2 /* ProfileModel.swift in Sources */,
 				E5B77C7028A380B300D13683 /* TabBarCoordinator.swift in Sources */,
 				E500F12C28A4828A00AD45C2 /* UserProfileViewModel.swift in Sources */,
 				E5B77C2E28A3796400D13683 /* SceneDelegate.swift in Sources */,

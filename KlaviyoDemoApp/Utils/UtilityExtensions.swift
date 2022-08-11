@@ -39,4 +39,16 @@ extension UIViewController {
 
 extension Notification.Name {
      static let profileChange = Notification.Name("user.profileChange")
- }
+}
+
+extension UIView {
+    static var nib: UINib? {
+        UINib(nibName: String(describing: self), bundle: nil)
+    }
+}
+
+extension UITableViewCell {
+    static var reuseIdentifier: String {
+        String(describing: self)
+    }
+}

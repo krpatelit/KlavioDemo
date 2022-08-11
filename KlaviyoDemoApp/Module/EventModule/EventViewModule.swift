@@ -22,5 +22,4 @@ class EventViewModule: EventViewModeling {
     func postEvent(event: EventInfo) {
         self.dataManager.postEvent(event: event)
     }
-
 }
