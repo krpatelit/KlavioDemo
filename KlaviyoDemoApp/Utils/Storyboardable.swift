@@ -30,5 +30,11 @@ enum Storyboardable<ViewController> {
         let storyboard = UIStoryboard(name: self.storyboardName, bundle: .main)
         return storyboard.instantiateViewController(withIdentifier: identifier) as! ViewController
     }
+
+    /// call the block with coder for the instance of Viewcontroller from storyboard.
+    func instantiateViewController<ViewController>(_ creator: ((NSCoder) -> ViewController?)? = nil) -> ViewController where ViewController : UIViewController {
+            let storyboard = UIStoryboard(name: self.storyboardName, bundle: .main)
+            return storyboard.instantiateViewController(identifier: identifier, creator: creator)
+    }
 }
 
