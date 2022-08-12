@@ -10,7 +10,7 @@ import UIKit
 
 class ApplicationCoordinator: Coordinator {
 
-    var parent: Coordinator?
+    weak var parent: Coordinator?
     var children: [Coordinator] = []
     var window: UIWindow
     var navigationController: UINavigationController

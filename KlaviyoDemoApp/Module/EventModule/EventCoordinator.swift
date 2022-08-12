@@ -10,7 +10,7 @@ import UIKit
 
 class EventCoordinator: Coordinator {
 
-    var parent: Coordinator?
+    weak var parent: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
     var rootViewContoller: UINavigationController?
