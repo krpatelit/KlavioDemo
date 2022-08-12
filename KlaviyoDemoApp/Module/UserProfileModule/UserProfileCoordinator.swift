@@ -25,14 +25,12 @@ class UserProfileCoordinator: Coordinator {
     }
 
     func start() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController
-
+        let viewController = Storyboardable<UserProfileViewController>.main.instantiate
         let dataManager = UserProfileDataManager(networkManager: self.networkManager)
         let eventModel = UserProfileViewModel(dataManager: dataManager)
-        viewController?.viewModele = eventModel
+        viewController.viewModele = eventModel
 
-        rootViewContoller = UINavigationController(rootViewController: viewController!)
+        rootViewContoller = UINavigationController(rootViewController: viewController)
         
     }
 

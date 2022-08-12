@@ -25,13 +25,11 @@ class EventCoordinator: Coordinator {
     }
 
     func start() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "EventViewController") as? EventViewController
-
+        let viewController = Storyboardable<EventViewController>.main.instantiate
         let dataManager = EventDataManager(networkManager: self.networkManager)
         let eventModel = EventViewModule(dataManager: dataManager)
-        viewController?.viewModule = eventModel
-        rootViewContoller = UINavigationController(rootViewController: viewController!)
+        viewController.viewModule = eventModel
+        rootViewContoller = UINavigationController(rootViewController: viewController)
     }
 
     func childDidFinish(_ child: Coordinator?) {
