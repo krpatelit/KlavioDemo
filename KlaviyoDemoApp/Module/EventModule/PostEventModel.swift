@@ -84,6 +84,7 @@ struct Properties: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: DynamicCodingKeys.self)
         try container.encode(value, forKey: DynamicCodingKeys(stringValue: "$value")!)
+        try container.encode(item_name, forKey: DynamicCodingKeys(stringValue: "item_name")!)
         if let extraPara = extraParameter {
             for (extraKey, extraValue) in extraPara {
                 try container.encode(extraValue, forKey: DynamicCodingKeys(stringValue: extraKey)!)

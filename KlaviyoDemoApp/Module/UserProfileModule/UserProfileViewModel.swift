@@ -53,7 +53,6 @@ class UserProfileViewModel: UserProfileViewModeling {
 
     init(dataManager: UserProfileDataManaging) {
         self.dataManager = dataManager
-        self.resetPager()
     }
 
     private func resetPager() {

@@ -24,6 +24,7 @@ class UserProfileViewController: UIViewController {
                 self?.tblView.reloadData()
             }
         }
+        self.viewModele?.resetData()
         self.viewModele?.loadMoreData()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(profileChange),
@@ -71,7 +72,8 @@ extension UserProfileViewController: UITableViewDataSource {
         cell?.setData(event: event)
         
         let count = self.viewModele?.numberOfItem() ?? 0
-        if count - 3 == indexPath.row {
+        //Define Pagination rule, when to call more data
+        if count >= 10 && count - 3 == indexPath.row {
             self.viewModele?.loadMoreData()
         }
 

@@ -11,5 +11,5 @@ import Foundation
 class Global {
     static var user = User()
     static let apiKey = "pk_96b0fe8936212b7aa32e67897b086660e8"
-    static let defaultEmailId = "kiran8@klaviyo.com"
+    static let defaultEmailId = "kiran84@klaviyo.com"
 }
